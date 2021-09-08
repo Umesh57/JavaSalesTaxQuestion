@@ -19,9 +19,7 @@ public class Billing extends Goods{
         double temp = super.finalProductCost();
         System.out.println(billingLine+": "+String.valueOf(new DecimalFormat("#,##0.00").format(temp)));
         total += temp;
-        //System.out.println(total);
         salesTax+=super.taxPrice; 
-        //System.out.println(salesTax);
     }
     
     public void printSalesTaxesAndTotal(){

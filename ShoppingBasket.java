@@ -14,7 +14,6 @@ public class ShoppingBasket {
                     String[] item = Arrays.copyOfRange(lines,1,lines.length-2);
                     Billing bill = new Billing(Integer.parseInt(lines[0]), Double.parseDouble(lines[lines.length-1]),item);
                     bill.printTotalQuantityPrice();
-                    //System.out.println(lines[0]+" "+lines[lines.length-1]+" "+Arrays.toString(item));//Arrays.copyOfRange(lines, 1, lines.length-1 ));
                 }
                 Billing bill = new Billing();
                 bill.printSalesTaxesAndTotal();

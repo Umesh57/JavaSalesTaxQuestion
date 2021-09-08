@@ -24,13 +24,9 @@ public class Goods {
     }
 
     // method to round the deciamal value close to 0.50
-    // public double roundTo(double value){
-    //            return Math.ceil(value / 0.05) * 0.05;
-    //        }
         public double roundTo(double value) {
             double temp = value * 100;
             if (temp == (int) temp) {
-                // System.out.println(temp+" "+"first if");
                 return value;
             } else {
                 String numberInString = String.valueOf(temp);
@@ -44,37 +40,7 @@ public class Goods {
     
         }
 
-
-
-    //    public double roundTo(double value){
-    //        return Math.ceil(value / 0.05) * 0.05;
-    //    }
-    // public double roundTo(double value) {
-    //     double temp = value * 100;
-    //     if (temp == (int) temp) {
-    //         // System.out.println(temp+" "+"first if");
-    //         return value;
-    //     } else {
-    //         String numberInString = String.valueOf(temp);
-    //         char numberAfterDecimal = numberInString.charAt(numberInString.indexOf(".") + 1);
-    //          //System.out.println(numberInString);
-    //          //System.out.println(numberAfterDecimal);
-    //         if (Character.getNumericValue(numberAfterDecimal) <= 5) {
-    //              //System.out.println("Second if");
-    //             String num = numberInString.substring(0, numberInString.indexOf("."));
-    //              //System.out.println(num);
-    //             num = num.substring(0, num.length() - 1) + "5";
-    //              //System.out.println(num+" updated");
-    //             return Double.parseDouble(num) / 100;
-    //         } else {
-    //             return Math.round(Double.parseDouble(numberInString)) / 100.0;
-    //         }
-    //     }
-
-    // }
-    public double priceCalculate(){  //(int quantity, double price){
-        //System.out.println(quantity);
-        //System.out.println(price);
+    public double priceCalculate(){ 
         return quantity * price;
     }
 
@@ -87,7 +53,7 @@ public class Goods {
     }
     
     // method to find category to avoid sales tax
-    public boolean isSpecialCategory(){//(String[] item){
+    public boolean isSpecialCategory(){
         if (itemContainsinCategory(item, book) || itemContainsinCategory(item, food) || itemContainsinCategory(item, medicalProducts)){
             return true;
         }
@@ -95,7 +61,7 @@ public class Goods {
             return false;
     }
 
-    public boolean isImported(){//(String[] item){
+    public boolean isImported(){
         for (int i=0;i<item.length;i++){
             if(item[i].equals("imported")){
                 return true;
@@ -106,21 +72,9 @@ public class Goods {
 
     public double finalProductCost(){
         Tax sTax = new Tax();
-        //System.out.println("In goods");
         double totalcost = priceCalculate();
-        //System.out.println(totalcost);
         taxPrice = sTax.taxCalculate(isSpecialCategory(),isImported(),totalcost);
-        //System.out.println(taxPrice);
-        return roundTo(totalcost+taxPrice); //deal with .50
+        return roundTo(totalcost+taxPrice);
     }
 
-    //  public static void main(String args[]){
-    //      String[] s = {"imported","chocolate","at"};
-    //       Goods g1 = new Goods(1,10.00,s);
-    //     // System.out.println(g1.priceCalculate());
-    //     // System.out.println(g1.isImported());
-    //     // System.out.println(g1.isSpecialCategory());
-    //     // System.out.println(g1.finalProductCost());
-    //      System.out.println(g1.roundTo(16.489));
-    //  }
 }
