@@ -74,7 +74,7 @@ Total: 74.68
 ShoppingBasket is the main class which take file(Input) as an input, in this shoppinbasket1.txt, shoppinbasket2.txt and shoppinbasket3.txt are three input file
 for the three above mentoned input. 
 To run this program:
-All the compiled classes are present, just run :java ShoppingBasket <file_name>.
+First  all classes need to be compiled and then, just run :java ShoppingBasket <file_name>.
 
 for eg. : java ShoppingBasket shoppingbasket1.txt will give the output as:
 
